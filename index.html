@@ -34,24 +34,31 @@
       padding: 0 1rem;
     }
 
-    h1, h2 {
+    /* h1 styling */
+    h1 {
       text-align: center;
       color: #202124;
-      /* Increased font size for h1 and h2 */
-      font-size: 3.5rem; /* Default for larger screens */
-      line-height: 1.2; /* Adjust line height for better readability with larger fonts */
+      font-size: 4rem !important; /* Large size for h1 */
+      line-height: 1.2;
+    }
+
+    /* h2 styling */
+    h2 {
+      text-align: center;
+      color: #202124;
+      font-size: 2.8rem !important; /* Smaller than h1, but still prominent */
+      line-height: 1.2;
     }
 
     /* Responsive font sizes for smaller screens */
     @media (max-width: 640px) { /* Adjust breakpoint as needed, e.g., for mobile */
       h1 {
-        font-size: 2.8rem; /* Smaller size for h1 on small screens */
+        font-size: 3.2rem !important; /* Smaller h1 for mobile */
       }
       h2 {
-        font-size: 2.4rem; /* Smaller size for h2 on small screens */
+        font-size: 2.2rem !important; /* Smaller h2 for mobile */
       }
     }
-
 
     .agenda ul {
       list-style: none;
@@ -217,3 +224,4 @@
   
 </body>
 </html>
+

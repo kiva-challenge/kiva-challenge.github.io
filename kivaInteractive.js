@@ -3,19 +3,19 @@ const levelsData = [
   {
     id: 'kiva',
     name: 'KiVA (Easy)',
-    imageSrc: 'https://storage.googleapis.com/kiva-challenge/images/k.jpg', 
+    imageSrc: 'https://storage.googleapis.com/kiva-challenge/images/k.jpg',
     caption: 'KiVA examines generalization to novel objects. This level primarily tests basic object recognition and simple rule application to new instances of familiar categories, focusing on the ability to apply a learned rule to objects not seen during training. Example rule: 6 new objects decrease by 1 in number. Correct: (A).'
   },
   {
     id: 'kiva-functions',
     name: 'KiVA-functions (Moderate)',
-    imageSrc: 'https://storage.googleapis.com/kiva-challenge/images/kf.jpg', 
+    imageSrc: 'https://storage.googleapis.com/kiva-challenge/images/kf.jpg',
     caption: 'KiVA-functions examines generalization to novel values of visual features through functional inference. Here, the model must infer a function that applies to a range of feature values (like number or size), not just specific objects, demonstrating an understanding of the underlying relationship. Example rule: new number of new objects decrease by 1 in number. Correct: (C).'
   },
   {
     id: 'kiva-functions-compositionality',
     name: 'KiVA-functions-compositionality (Difficult)',
-    imageSrc: 'https://storage.googleapis.com/kiva-challenge/images/kfc.jpg', 
+    imageSrc: 'https://storage.googleapis.com/kiva-challenge/images/kfc.jpg',
     caption: 'KiVA-functions-compositionality examines generalization to novel values and combinations of visual features, testing functional and compositional reasoning. This is the most complex level, requiring the model to combine multiple inferred functions and apply them to unseen feature combinations. Example rule: new number and new orientation of new objects decrease by 1 in number and rotate by 180 degrees in orientation. Correct: (A).'
   }
 ];
@@ -26,13 +26,21 @@ function App() {
   return (
     <div className="bg-white rounded-2xl shadow-xl overflow-hidden my-8"> {/* Added margin for spacing */}
 
+      {/* Header */}
+      <div className="p-6 sm:p-8 bg-blue-600 text-white text-center rounded-t-2xl">
+        {/* Added !text-white to ensure the color is white, overriding any conflicting styles */}
+        <h1 className="text-3xl sm:text-4xl font-bold mb-2 !text-white">KiVA Challenge by Level of Difficulty</h1>
+        <p className="text-blue-200 text-lg">Explore the different challenges in visual reasoning.</p>
+      </div>
+
       {/* Navigation Tabs */}
       <div className="flex flex-col sm:flex-row justify-around p-4 sm:p-6 bg-gray-50 border-b border-gray-200">
         {levelsData.map((level) => (
           <button
             key={level.id}
             onClick={() => setSelectedLevel(level)}
-            className={`flex-1 py-3 px-4 mx-1 sm:mx-2 text-center text-lg font-semibold rounded-lg transition-all duration-300 ease-in-out
+            // Changed text-lg to text-base for smaller font size
+            className={`flex-1 py-3 px-4 mx-1 sm:mx-2 text-center text-base font-semibold rounded-lg transition-all duration-300 ease-in-out
               ${selectedLevel.id === level.id
                 ? 'bg-blue-500 text-white shadow-md transform scale-105'
                 : 'bg-transparent text-gray-700 hover:bg-blue-100 hover:text-blue-700'
@@ -47,23 +55,26 @@ function App() {
       <div className="p-6 sm:p-8 flex flex-col md:flex-row items-center md:items-start gap-6">
         {selectedLevel && (
           <>
-            {/* Image Section */}
-            <div className="w-full md:w-1/2 flex-shrink-0">
-              <img
-                src={selectedLevel.imageSrc}
-                alt={`${selectedLevel.name} Example`}
-                className="w-full h-auto rounded-xl shadow-lg object-cover"
-                onError={(e) => {
-                  e.target.onerror = null; // Prevent looping
-                  e.target.src = `https://placehold.co/400x300/FF0000/FFFFFF?text=Image+Error`; // Fallback image
-                }}
-              />
+            {/* Image Section - Made container larger (md:w-3/5) and image clickable */}
+            <div className="w-full md:w-3/5 flex-shrink-0">
+              <a href={selectedLevel.imageSrc} target="_blank" rel="noopener noreferrer" className="block cursor-pointer">
+                <img
+                  src={selectedLevel.imageSrc}
+                  alt={`${selectedLevel.name} Example`}
+                  className="w-full h-auto rounded-xl shadow-lg object-cover transform transition-transform duration-200 hover:scale-105"
+                  onError={(e) => {
+                    e.target.onerror = null; // Prevent looping
+                    e.target.src = `https://placehold.co/400x300/FF0000/FFFFFF?text=Image+Error`; // Fallback image
+                  }}
+                />
+              </a>
             </div>
 
             {/* Caption Section */}
-            <div className="w-full md:w-1/2 text-gray-800">
+            <div className="w-full md:w-2/5 text-gray-800"> {/* Adjusted width for caption section */}
               <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-blue-700">{selectedLevel.name}</h2>
-              <p className="text-base sm:text-lg leading-relaxed" dangerouslySetInnerHTML={{ __html: selectedLevel.caption }}></p>
+              {/* Changed text-base sm:text-lg to text-sm sm:text-base for smaller captions */}
+              <p className="text-sm sm:text-base leading-relaxed" dangerouslySetInnerHTML={{ __html: selectedLevel.caption }}></p>
             </div>
           </>
         )}

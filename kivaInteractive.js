@@ -1,22 +1,22 @@
 // kivaInteractive.js
 const levelsData = [
-  {
+ {
     id: 'kiva',
     name: 'KiVA (Easy)',
     imageSrc: 'https://storage.googleapis.com/kiva-challenge/images/k.jpg',
-    caption: 'KiVA examines generalization to novel objects. Example rule: 6 new objects decrease by 1 in number. Correct: (A).'
+    caption: '<strong>KiVA:</strong> changing object identity only<br/>Rule: Make five of any object.<br/>Answer: (A)'
   },
   {
     id: 'kiva-functions',
     name: 'KiVA-functions (Moderate)',
     imageSrc: 'https://storage.googleapis.com/kiva-challenge/images/kf.jpg',
-    caption: 'KiVA-functions examines generalization to novel values of visual features through functional inference. Example rule: new number of new objects decrease by 1 in number. Correct: (C).'
+    caption: '<strong>KiVA-functions:</strong> changing object identity & 1 visual feature (e.g., number)<br/>Rule: Subtract one from any number of any object.<br/>Answer: (C)'
   },
   {
     id: 'kiva-functions-compositionality',
     name: 'KiVA-functions-compositionality (Difficult)',
     imageSrc: 'https://storage.googleapis.com/kiva-challenge/images/kfc.jpg',
-    caption: 'KiVA-functions-compositionality examines generalization to novel values and combinations of visual features, testing functional and compositional reasoning. Example rule: new number and new orientation of new objects decrease by 1 in number and rotate by 180 degrees in orientation. Correct: (A).'
+    caption: '<strong>KiVA-functions-compositionality:</strong> changing object identity and 2 visual features (e.g., number and orientation)<br/>Rule: Apply both “subtract one” and “flip 180°” to any count, orientation and object.<br/>Answer: (A)'
   }
 ];
 

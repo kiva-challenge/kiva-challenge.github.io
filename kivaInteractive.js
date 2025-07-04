@@ -65,8 +65,6 @@ function App() {
 
             {/* Caption Section */}
             <div className="w-full md:w-2/5 text-gray-800"> {/* Adjusted width for caption section */}
-              <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-blue-700">{selectedLevel.name}</h2>
-              {/* Changed text-base sm:text-lg to text-sm sm:text-base for smaller captions */}
               <p className="text-sm sm:text-base leading-relaxed" dangerouslySetInnerHTML={{ __html: selectedLevel.caption }}></p>
             </div>
           </>

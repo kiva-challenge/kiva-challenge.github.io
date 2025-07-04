@@ -15,7 +15,7 @@ const levelsData = [
   {
     id: 'kiva-functions-compositionality',
     name: 'KiVA-functions-compositionality (Difficult)',
-    imageSrc: 'https://storage.googleapis.com/kiva-challenge/images/kf', 
+    imageSrc: 'https://storage.googleapis.com/kiva-challenge/images/kfc.jpg', 
     caption: 'KiVA-functions-compositionality examines generalization to novel values and combinations of visual features, testing functional and compositional reasoning. This is the most complex level, requiring the model to combine multiple inferred functions and apply them to unseen feature combinations. Example rule: new number and new orientation of new objects decrease by 1 in number and rotate by 180 degrees in orientation. Correct: (A).'
   }
 ];

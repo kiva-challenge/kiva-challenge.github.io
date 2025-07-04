@@ -25,10 +25,6 @@ function App() {
 
   return (
     <div className="bg-white rounded-2xl shadow-xl overflow-hidden my-8"> {/* Added margin for spacing */}
-      {/* Header */}
-      <div className="p-6 sm:p-8 bg-blue-600 text-white text-center rounded-t-2xl">
-        <h1 className="text-3xl sm:text-4xl font-bold mb-2 !text-white">KiVA Challenge by Level of Difficulty</h1>
-      </div>
 
       {/* Navigation Tabs */}
       <div className="flex flex-col sm:flex-row justify-around p-4 sm:p-6 bg-gray-50 border-b border-gray-200">

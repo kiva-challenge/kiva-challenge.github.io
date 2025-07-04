@@ -37,8 +37,21 @@
     h1, h2 {
       text-align: center;
       color: #202124;
-      font-size: 3.6rem;
+      /* Increased font size for h1 and h2 */
+      font-size: 3.5rem; /* Default for larger screens */
+      line-height: 1.2; /* Adjust line height for better readability with larger fonts */
     }
+
+    /* Responsive font sizes for smaller screens */
+    @media (max-width: 640px) { /* Adjust breakpoint as needed, e.g., for mobile */
+      h1 {
+        font-size: 2.8rem; /* Smaller size for h1 on small screens */
+      }
+      h2 {
+        font-size: 2.4rem; /* Smaller size for h2 on small screens */
+      }
+    }
+
 
     .agenda ul {
       list-style: none;
@@ -122,7 +135,7 @@
 
   <div class="section">
     <h1>KiVA x Perception Test Challenge</h1>
-    <p style="text-align:center;">KiVA evaluates a model’s capacity for abstract visual reasoning that even young children can achieve. <br>We are honored to present a guest challenge at the Perception Test Workshop, ICCV 2025 in Honolulu!</p>
+    <p style="text-align:center;">KiVA evaluates a model’s capacity for abstract visual reasoning that even young children can achieve. <br>We are honored to present a guest challenge at the Perception Test Workshop, ICCV 2025 in Honolulu!</p>
 
     <div class="button-row">
       <a href="https://perception-test-challenge.github.io/" class="btn" target="_blank">Visit Perception Test Site</a>
@@ -132,7 +145,7 @@
     </div>
   </div>
 
-  <h2>KiVA Challenge is organized in to 3 levels of difficulty.</h2>
+  <h2>KiVA Challenge is organized into 3 levels of difficulty.</h2>
   <div id="kiva-interactive-root"></div>
   
   <div class="section agenda">
@@ -196,10 +209,11 @@
       </div>
     </div>
   </div>
-<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-<script type="text/babel" src="kivaInteractive.js"></script>
+
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel" src="kivaInteractive.js"></script>
   
 </body>
 </html>

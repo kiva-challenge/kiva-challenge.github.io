@@ -4,19 +4,19 @@ const levelsData = [
     id: 'kiva',
     name: 'KiVA (Easy)',
     imageSrc: 'https://storage.googleapis.com/kiva-challenge/images/k.jpg',
-    caption: 'KiVA examines generalization to novel objects. This level primarily tests basic object recognition and simple rule application to new instances of familiar categories, focusing on the ability to apply a learned rule to objects not seen during training. Example rule: 6 new objects decrease by 1 in number. Correct: (A).'
+    caption: 'KiVA examines generalization to novel objects. Example rule: 6 new objects decrease by 1 in number. Correct: (A).'
   },
   {
     id: 'kiva-functions',
     name: 'KiVA-functions (Moderate)',
     imageSrc: 'https://storage.googleapis.com/kiva-challenge/images/kf.jpg',
-    caption: 'KiVA-functions examines generalization to novel values of visual features through functional inference. Here, the model must infer a function that applies to a range of feature values (like number or size), not just specific objects, demonstrating an understanding of the underlying relationship. Example rule: new number of new objects decrease by 1 in number. Correct: (C).'
+    caption: 'KiVA-functions examines generalization to novel values of visual features through functional inference. Example rule: new number of new objects decrease by 1 in number. Correct: (C).'
   },
   {
     id: 'kiva-functions-compositionality',
     name: 'KiVA-functions-compositionality (Difficult)',
     imageSrc: 'https://storage.googleapis.com/kiva-challenge/images/kfc.jpg',
-    caption: 'KiVA-functions-compositionality examines generalization to novel values and combinations of visual features, testing functional and compositional reasoning. This is the most complex level, requiring the model to combine multiple inferred functions and apply them to unseen feature combinations. Example rule: new number and new orientation of new objects decrease by 1 in number and rotate by 180 degrees in orientation. Correct: (A).'
+    caption: 'KiVA-functions-compositionality examines generalization to novel values and combinations of visual features, testing functional and compositional reasoning. Example rule: new number and new orientation of new objects decrease by 1 in number and rotate by 180 degrees in orientation. Correct: (A).'
   }
 ];
 
@@ -25,13 +25,6 @@ function App() {
 
   return (
     <div className="bg-white rounded-2xl shadow-xl overflow-hidden my-8"> {/* Added margin for spacing */}
-
-      {/* Header */}
-      <div className="p-6 sm:p-8 bg-blue-600 text-white text-center rounded-t-2xl">
-        {/* Added !text-white to ensure the color is white, overriding any conflicting styles */}
-        <h1 className="text-3xl sm:text-4xl font-bold mb-2 !text-white">KiVA Challenge by Level of Difficulty</h1>
-        <p className="text-blue-200 text-lg">Explore the different challenges in visual reasoning.</p>
-      </div>
 
       {/* Navigation Tabs */}
       <div className="flex flex-col sm:flex-row justify-around p-4 sm:p-6 bg-gray-50 border-b border-gray-200">

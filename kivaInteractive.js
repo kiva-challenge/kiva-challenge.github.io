@@ -33,7 +33,7 @@ function App() {
             key={level.id}
             onClick={() => setSelectedLevel(level)}
             // Changed text-lg to text-base for smaller font size
-            className={`flex-1 py-3 px-4 mx-1 sm:mx-2 text-center text-base font-semibold rounded-lg transition-all duration-300 ease-in-out
+            className={`flex-1 py-3 px-4 mx-1 sm:mx-2 text-center text-sm font-semibold rounded-lg transition-all duration-300 ease-in-out
               ${selectedLevel.id === level.id
                 ? 'bg-blue-500 text-white shadow-md transform scale-105'
                 : 'bg-transparent text-gray-700 hover:bg-blue-100 hover:text-blue-700'

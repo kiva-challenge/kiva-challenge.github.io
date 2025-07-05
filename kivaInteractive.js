@@ -4,19 +4,19 @@ const levelsData = [
     id: 'kiva',
     name: 'KiVA (Easy)',
     imageSrc: 'https://storage.googleapis.com/kiva-challenge/images/k.jpg',
-    caption: '<strong>KiVA:</strong> changing object identity only<br/><br/>Rule: Make five of any object in the output.<br/><br/>Answer: (A)'
+    caption: '<strong>KiVA:</strong> changing object identity only<br/><br/>Success Rule: Make five of any object in the output.<br/><br/>Answer: (A)'
   },
   {
     id: 'kiva-functions',
     name: 'KiVA-functions (Moderate)',
     imageSrc: 'https://storage.googleapis.com/kiva-challenge/images/kf.jpg',
-    caption: '<strong>KiVA-functions:</strong> changing object identity & 1 visual feature (e.g., number)<br/><br/>Rule: Subtract one from any number of any object.<br/><br/>Answer: (C)'
+    caption: '<strong>KiVA-functions:</strong> changing object identity & 1 visual feature (e.g., number)<br/><br/>Success Rule: Subtract one from any number of any object.<br/><br/>Answer: (C)'
   },
   {
     id: 'kiva-functions-compositionality',
     name: 'KiVA-functions-compositionality (Difficult)',
     imageSrc: 'https://storage.googleapis.com/kiva-challenge/images/kfc.jpg',
-    caption: '<strong>KiVA-functions-compositionality:</strong> changing object identity and 2 visual features (e.g., number and orientation)<br/><br/>Rule: Subtract one AND rotate 180° to any number and orientation of any object.<br/><br/>Answer: (A)'
+    caption: '<strong>KiVA-functions-compositionality:</strong> changing object identity and 2 visual features (e.g., number and orientation)<br/><br/>Success Rule: Subtract one AND rotate 180° to any number and orientation of any object.<br/><br/>Answer: (A)'
   }
 ];
 

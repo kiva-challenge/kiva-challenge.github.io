@@ -16,7 +16,7 @@ const levelsData = [
     id: 'kiva-functions-compositionality',
     name: 'KiVA-functions-compositionality (Difficult)',
     imageSrc: 'https://storage.googleapis.com/kiva-challenge/images/kfc.jpg',
-    caption: '<strong>KiVA-functions-compositionality:</strong> changing object identity and 2 visual features (e.g., number and orientation)<br/><br/>Rule: Apply both “subtract one” and “flip 180°” to any count, orientation and object.<br/><br/>Answer: (A)'
+    caption: '<strong>KiVA-functions-compositionality:</strong> changing object identity and 2 visual features (e.g., number and orientation)<br/><br/>Rule: Subtract one AND rotate 180° to any number and orientation of any object.<br/><br/>Answer: (A)'
   }
 ];
 

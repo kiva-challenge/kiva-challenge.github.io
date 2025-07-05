@@ -4,7 +4,7 @@ const levelsData = [
     id: 'kiva',
     name: 'KiVA (Easy)',
     imageSrc: 'https://storage.googleapis.com/kiva-challenge/images/k.jpg',
-    caption: '<strong>KiVA:</strong> changing object identity only<br/><br/>Rule: Make five of any object.<br/><br/>Answer: (A)'
+    caption: '<strong>KiVA:</strong> changing object identity only<br/><br/>Rule: Make five of any object in the output.<br/><br/>Answer: (A)'
   },
   {
     id: 'kiva-functions',

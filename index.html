@@ -1,259 +1,271 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KiVA Challenge @ ICCV 2025</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap">
-  <link rel="icon" href="./images/kidicon.png">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #fefefe;
-      color: #333;
-      margin: 0;
-      padding: 0;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KiVA Challenge @ ICCV 2025</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap">
+  <link rel="icon" href="./images/kidicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fefefe;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    .banner-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+
+    .banner {
+      max-width: 60%;
+      height: auto;
+      display: block;
+      margin: 0 auto 2rem;
+    }
+
+    .section {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    
+    .summary {
+      cursor: pointer;
+    }
+
+    @font-face {
+      font-family: "Aptos";
+      font-style: normal;
+      font-weight: 300;
+      src: url("/fonts/Aptos-Light.woff2") format("woff2"),
+       url("/fonts/Aptos-Light.woff")  format("woff");
+    }
+
+    /* h1 styling */
+    h1 {
+      font-family: "Aptos", sans-serif;
+      font-weight: 300; 
+      text-align: center;
+      color: #202124;
+      font-size: 3.6rem !important; /* Large size for h1 */
+      line-height: 1.2;
+    }
+
+    /* h2 styling */
+    h2 {
+      font-family: "Aptos", sans-serif;
+      font-weight: 300; 
+      text-align: center;
+      color: #202124;
+      font-size: 2.2rem !important; /* Smaller than h1, but still prominent */
+      line-height: 1.2;
+    }
+
+    /* Responsive font sizes for smaller screens */
+    @media (max-width: 640px) { /* Adjust breakpoint as needed, e.g., for mobile */
+      h1 {
+        font-size: 3.2rem !important; /* Smaller h1 for mobile */
+      }
+      h2 {
+        font-size: 2.2rem !important; /* Smaller h2 for mobile */
+      }
+    }
+
+    .agenda ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .agenda li {
+      background: #f1f3f4;
+      margin: 0.5rem 0;
+      padding: 0.75rem;
+      border-radius: 6px;
+    }
+
+    .button-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .btn {
+      background: #1a73e8;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 9999px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.2s ease;
+    }
+
+    .btn:hover {
+      background: #155ec0;
+    }
+
+    .organizers {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .organizer {
+      text-align: center;
+      width: 100px;
+    }
+
+    .organizer img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #ccc;
+    }
+
+    .organizer > div,
+    .organizer > small {
+      font-size: 1rem;
+      line-height: 1.2;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding: 2rem;
+      background: #f5f5f5;
+      font-size: 0.9rem;
+    }
+    #kiva-interactive-root {
+      max-width: 900px;
+      margin: 2rem auto; /* Matches .section margin */
+      padding: 0 1rem; /* Matches .section padding */
+    }
+
+    /* New/Modified CSS for the KiVA agenda item when it's the only one */
+    .agenda li.kiva-track { /* New class for specific styling */
+        color: #007acc; /* Blue color for the main title */
+        font-weight: bold; /* Bold for the main title */
+        background: #e6f7ff; /* Light blue background for the entire block */
+        padding: 0.75rem; /* Padding for the main block */
+        border-radius: 6px; /* Rounded corners */
+        margin: 0.5rem 0; /* Standard margin for list items */
     }
 
-    .banner-wrapper {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 1rem;
+    .agenda li.kiva-track ul { /* Style for the nested UL */
+        background-color: #f0f8ff; /* A slightly different light blue for the inner block */
+        padding: 0.5em 1em; /* Indentation for the content */
+        border-radius: 4px; /* Rounded corners for the inner block */
+        margin-top: 0.5rem; /* Space between main title and nested list */
     }
 
-    .banner {
-      max-width: 60%;
-      height: auto;
-      display: block;
-      margin: 0 auto 2rem;
+    .agenda li.kiva-track ul li { /* Style for list items *inside* the nested UL */
+        background: none; /* No individual background */
+        padding: 0.2em 0; /* Smaller padding */
+        margin: 0; /* No margin between inner items */
+        font-weight: normal; /* Make nested items not bold by default if parent is bold */
+        color: #007acc; /* Keep nested items blue */
     }
 
-    .section {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-
-    .section.agenda details > ul {
-      margin-left: 1.5em;
-      background-color: #f0f8ff;  
-      padding: 0.5em 1em;
-      border-radius: 4px;
-    }
-    
-    .section.agenda details summary {
-      cursor: pointer;
-      padding: 0.2em 0.5em;
-      border-radius: 4px;
-    }
-    
-    .summary {
-      cursor: pointer;
-    }
-
-    @font-face {
-      font-family: "Aptos";
-      font-style: normal;
-      font-weight: 300;
-      src: url("/fonts/Aptos-Light.woff2") format("woff2"),
-       url("/fonts/Aptos-Light.woff")  format("woff");
-    }
-
-    /* h1 styling */
-    h1 {
-      font-family: "Aptos", sans-serif;
-      font-weight: 300; 
-      text-align: center;
-      color: #202124;
-      font-size: 3.6rem !important; /* Large size for h1 */
-      line-height: 1.2;
-    }
-
-    /* h2 styling */
-    h2 {
-      font-family: "Aptos", sans-serif;
-      font-weight: 300; 
-      text-align: center;
-      color: #202124;
-      font-size: 2.2rem !important; /* Smaller than h1, but still prominent */
-      line-height: 1.2;
-    }
-
-    /* Responsive font sizes for smaller screens */
-    @media (max-width: 640px) { /* Adjust breakpoint as needed, e.g., for mobile */
-      h1 {
-        font-size: 3.2rem !important; /* Smaller h1 for mobile */
-      }
-      h2 {
-        font-size: 2.2rem !important; /* Smaller h2 for mobile */
-      }
-    }
-
-    .agenda ul {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .agenda li {
-      background: #f1f3f4;
-      margin: 0.5rem 0;
-      padding: 0.75rem;
-      border-radius: 6px;
-    }
-
-    .button-row {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin: 2rem 0;
-    }
-
-    .btn {
-      background: #1a73e8;
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: 9999px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: background 0.2s ease;
-    }
-
-    .btn:hover {
-      background: #155ec0;
-    }
-
-    .organizers {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-
-    .organizer {
-      text-align: center;
-      width: 100px;
-    }
-
-    .organizer img {
-      width: 100px;
-      height: 100px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 3px solid #ccc;
-    }
-
-    .organizer > div,
-    .organizer > small {
-      font-size: 1rem;
-      line-height: 1.2;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 3rem;
-      padding: 2rem;
-      background: #f5f5f5;
-      font-size: 0.9rem;
-    }
-    #kiva-interactive-root {
-      max-width: 900px;
-      margin: 2rem auto; /* Matches .section margin */
-      padding: 0 1rem; /* Matches .section padding */
-    }
-  </style>
+  </style>
 </head>
 <body>
-  <div class="banner-wrapper">
-    <img class="banner" src="images/KiVAPT.jpg" alt="KiVA x Perception Test Banner">
-  </div>
+  <div class="banner-wrapper">
+    <img class="banner" src="images/KiVAPT.jpg" alt="KiVA x Perception Test Banner">
+  </div>
 
-  <div class="section">
-    <h1>KiVA x Perception Test Challenge</h1>
-    <p style="text-align:center;">KiVA evaluates a model’s capacity for abstract visual reasoning that even human children can achieve. <br>We are honored to present a guest challenge at the Perception Test Workshop, ICCV 2025 in Honolulu!</p>
+  <div class="section">
+    <h1>KiVA x Perception Test Challenge</h1>
+    <p style="text-align:center;">KiVA evaluates a model’s capacity for abstract visual reasoning that even human children can achieve. <br>We are honored to present a guest challenge at the Perception Test Workshop, ICCV 2025 in Honolulu!</p>
 
-    <div class="button-row">
-      <a href="https://perception-test-challenge.github.io/" class="btn" target="_blank">Visit Perception Test Site</a>
-      <a href="https://ey242.github.io/kiva.github.io/" class="btn" target="_blank">KiVA Webpage</a>
-      <a href="https://github.com/ey242/KiVA-challenge" class="btn" target="_blank">Challenge Dataset</a>
-      <a href="terms.html" class="btn">Terms &amp; Conditions</a>
-    </div>
-  </div>
+    <div class="button-row">
+      <a href="https://perception-test-challenge.github.io/" class="btn" target="_blank">Visit Perception Test Site</a>
+      <a href="https://ey242.github.io/kiva.github.io/" class="btn" target="_blank">KiVA Webpage</a>
+      <a href="https://github.com/ey242/KiVA-challenge" class="btn" target="_blank">Challenge Dataset</a>
+      <a href="terms.html" class="btn">Terms &amp; Conditions</a>
+    </div>
+  </div>
 
-  <h2>KiVA Challenge is organized into 3 levels of difficulty.</h2>
-  <div id="kiva-interactive-root"></div>
+  <h2>KiVA Challenge is organized into 3 levels of difficulty.</h2>
+  <div id="kiva-interactive-root"></div>
 
-   <div class="section agenda">
-    <h2>Challenge Timeline</h2>
-    <ul>
-      <li><strong>July 7:</strong> Challenge server (with validation data & annotations) goes live</li>
-      <li><strong>September 1:</strong> Test is released</li>
-      <li><strong>October 6:</strong> Deadline for submissions</li>
-      <li><strong>October 10:</strong> Decision to participants</li>
-    </ul>
-  </div>
-  
-  <div class="section agenda">
-    <h2>Workshop Agenda</h2>
-    <ul>
-      <strong>14:00 – 15:10 KiVA Guest Track</strong>
-      <li>14:00 – 14:30 Keynote: Alison Gopnik</li>
-      <li>14:30 – 14:40 KiVA Challenge Overview & Winner Announcement</li>
-      <li>14:40 – 15:05 Presentations by Top Three Winners  <em>(7 min each + 1 min Q&A)</em></li>
-    </ul>
-  </div>
-  
-  <style>
-    .highlight {
-      font-weight: bold;
-      color: #007acc;
-    }
-  </style> 
+   <div class="section agenda">
+    <h2>Challenge Timeline</h2>
+    <ul>
+      <li><strong>July 7:</strong> Challenge server (with validation data & annotations) goes live</li>
+      <li><strong>September 1:</strong> Test is released</li>
+      <li><strong>October 6:</strong> Deadline for submissions</li>
+      <li><strong>October 10:</strong> Decision to participants</li>
+    </ul>
+  </div>
+  
+  <div class="section agenda">
+    <h2>Workshop Agenda</h2>
+    <ul>
+      <li class="kiva-track">
+        <strong>14:00 – 15:10 KiVA Guest Track (Keynote: Alison Gopnik)</strong>
+        <ul>
+          <li>14:00 – 14:30 Keynote: Alison Gopnik</li>
+          <li>14:30 – 14:40 KiVA Challenge Overview & Winner Announcement</li>
+          <li>
+            14:40 – 15:05 Presentations by Top Three Winners  
+            <em>(7 min each + 1 min Q&A)</em>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="section">
+    <h2>Organizers</h2>
+    <div class="organizers">
+      <div class="organizer">
+        <img src="images/eunice.png" alt="">
+        <div>Eunice Yiu</div>
+        <small>UC Berkeley</small>
+      </div>
+      <div class="organizer">
+        <img src="images/anisa.jpg" alt="">
+        <div>Anisa Noor Majhi</div>
+        <small>UC Berkeley</small>
+      </div>
+      <div class="organizer">
+        <img src="images/maan.jpeg" alt="">
+        <div>Maan Qraitem</div>
+        <small>Boston University</small>
+      </div>
+      <div class="organizer">
+        <img src="images/shiry.webp" alt="">
+        <div>Shiry Ginosar</div>
+        <small>Google Deepmind, TTIC</small>
+      </div>
+      <div class="flex-break"></div>
+      <div class="organizer">
+        <img src="images/kate.jpg" alt="">
+        <div>Kate Saenko</div>
+        <small>Boston University</small>
+      </div>
+      <div class="organizer">
+        <img src="images/alison.jpg" alt="">
+        <div>Alison Gopnik</div>
+        <small>UC Berkeley</small>
+      </div>
+    </div>
+  </div>
 
-  <div class="section">
-    <h2>Organizers</h2>
-    <div class="organizers">
-      <div class="organizer">
-        <img src="images/eunice.png" alt="">
-        <div>Eunice Yiu</div>
-        <small>UC Berkeley</small>
-      </div>
-      <div class="organizer">
-        <img src="images/anisa.jpg" alt="">
-        <div>Anisa Noor Majhi</div>
-        <small>UC Berkeley</small>
-      </div>
-      <div class="organizer">
-        <img src="images/maan.jpeg" alt="">
-        <div>Maan Qraitem</div>
-        <small>Boston University</small>
-      </div>
-      <div class="organizer">
-        <img src="images/shiry.webp" alt="">
-        <div>Shiry Ginosar</div>
-        <small>Google Deepmind, TTIC</small>
-      </div>
-      <div class="flex-break"></div>
-      <div class="organizer">
-        <img src="images/kate.jpg" alt="">
-        <div>Kate Saenko</div>
-        <small>Boston University</small>
-      </div>
-      <div class="organizer">
-        <img src="images/alison.jpg" alt="">
-        <div>Alison Gopnik</div>
-        <small>UC Berkeley</small>
-      </div>
-    </div>
-  </div>
-
-  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <script type="text/babel" src="kivaInteractive.js"></script>
-  
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel" src="kivaInteractive.js"></script>
+  
 </body>
 </html>
-

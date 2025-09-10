@@ -47,7 +47,16 @@
       padding: 0.2em 0.5em;
       border-radius: 4px;
     }
-    
+
+    .agenda-date {
+      font-size: 1.2rem;     /* larger font */
+      margin-top: 0.5rem;    /* space below the title */
+      margin-bottom: 1rem;   /* space above the agenda list */
+      color: #444;           /* a bit darker for readability */
+      text-align: center;    /* center to match headings */
+      font-weight: 400;      /* subtle emphasis */
+    }
+
     .summary {
       cursor: pointer;
     }
@@ -198,9 +207,7 @@
   
   <div class="section agenda">
     <h2>KiVA Guest Track Workshop Agenda at ICCV 2025</h2>
-    <p style="font-size: 0.9em; margin-top: -10px; color: #555;">
-    Date: October 19, 2025
-    </p>
+    <p class="agenda-date">Date: October 19, 2025</p>
     <ul>
       <li>14:00 – 14:30 Keynote: Alison Gopnik</li>
       <li>14:30 – 14:40 KiVA Challenge Overview & Winner Announcement</li>
